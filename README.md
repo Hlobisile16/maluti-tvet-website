@@ -1,4 +1,4 @@
-# Maluti TVET College � Website Revamp
+﻿# Maluti TVET College — Website Revamp
 
 Developed by: Hlobisile Sibeko  
 GitHub: github.com/Hlobisile16  
@@ -45,4 +45,51 @@ A REST API with the following endpoints:
 | POST | /api/contact | Handles contact form submissions |
 | POST | /api/apply | Handles student applications |
 
+### Live API
+> https://maluti-tvet-api.onrender.com
+
+| Test these endpoints in your browser: |
+|---------------------------------------|
+| https://maluti-tvet-api.onrender.com/api/programmes |
+| https://maluti-tvet-api.onrender.com/api/news |
+| https://maluti-tvet-api.onrender.com/api/campuses |
+
+
+
 ### 3. Repository structure
+
+maluti-tvet-website/
+├── index.html
+├── README.md
+├── .gitignore
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+├── pages/
+│   ├── programmes.html
+│   ├── admissions.html
+│   ├── news.html
+│   └── contact.html
+└── api/
+    ├── server.js
+    └── package.json
+
+---
+## Technology stack
+| Layer | Technology |
+|-------|------------|
+| Frontend | HTML5, CSS3, Vanilla JavaScript |
+| Backend | Node.js, Express.js |
+| Version Control | Git and GitHub |
+| Frontend Hosting | Netlify |
+| API Hosting | Render |
+
+---
+## Developer
+Hlobisile Sibeko  
+National Diploma in Information Technology  
+GitHub: github.com/Hlobisile16  
+
+---
+*Developed for The Battlefield Holdings — Phase 2 Assessment | April 2026*
