@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portal | Maluti TVET College</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .portal-card {
+            background: #ffffff;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+            .portal-card .icon {
+                font-size: 32px;
+                margin-bottom: 10px;
+            }
+
+            .portal-card h3 {
+                font-size: 14px;
+                font-weight: 600;
+                color: #003366;
+                margin-bottom: 6px;
+            }
+
+            .portal-card p {
+                font-size: 13px;
+                color: #666;
+                line-height: 1.6;
+                margin-bottom: 10px;
+            }
+
+            .portal-card .btn-portal {
+                display: inline-block;
+                background: #003366;
+                color: #ffffff;
+                padding: 8px 16px;
+                border-radius: 6px;
+                font-size: 12px;
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+        .nsfas-box {
+            background: #EAF3DE;
+            border: 1px solid #c5dfa0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+            .nsfas-box .nsfas-icon {
+                font-size: 40px;
+                flex-shrink: 0;
+            }
+
+            .nsfas-box h3 {
+                font-size: 16px;
+                font-weight: 600;
+                color: #003366;
+                margin-bottom: 8px;
+            }
+
+            .nsfas-box p {
+                font-size: 13px;
+                color: #444;
+                line-height: 1.7;
+                margin-bottom: 10px;
+            }
+
+            .nsfas-box .btn-nsfas {
+                display: inline-block;
+                background: #FFD700;
+                color: #003366;
+                padding: 10px 20px;
+                border-radius: 6px;
+                font-size: 13px;
+                font-weight: 600;
+                text-decoration: none;
+            }
+
+        .tracking-box {
+            background: #ffffff;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+            .tracking-box h4 {
+                font-size: 15px;
+                font-weight: 600;
+                color: #003366;
+                margin-bottom: 1rem;
+            }
+
+        .tracking-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+            .tracking-form input {
+                flex: 1;
+                min-width: 200px;
+                padding: 10px 12px;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                font-size: 13px;
+            }
+
+            .tracking-form button {
+                background: #003366;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 6px;
+                font-size: 13px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+        .status-steps {
+            display: flex;
+            gap: 0;
+            flex-wrap: wrap;
+        }
+
+        .status-step {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            padding: 10px 8px;
+            font-size: 11px;
+            color: #999;
+            border-bottom: 3px solid #e8e8e8;
+        }
+
+            .status-step.done {
+                color: #003366;
+                border-bottom: 3px solid #003366;
+                font-weight: 600;
+            }
+
+            .status-step.active {
+                color: #FFD700;
+                border-bottom: 3px solid #FFD700;
+                font-weight: 600;
+            }
+
+        .login-box {
+            background: #003366;
+            border-radius: 10px;
+            padding: 2rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+            .login-box h3 {
+                color: #FFD700;
+                font-size: 18px;
+                font-weight: 600;
+                margin-bottom: 1.25rem;
+                text-align: center;
+            }
+
+            .login-box input {
+                width: 100%;
+                padding: 10px 12px;
+                border: none;
+                border-radius: 6px;
+                font-size: 13px;
+                margin-bottom: 10px;
+                background: rgba(255,255,255,0.15);
+                color: #fff;
+            }
+
+                .login-box input::placeholder {
+                    color: rgba(255,255,255,0.6);
+                }
+
+            .login-box button {
+                width: 100%;
+                background: #FFD700;
+                color: #003366;
+                border: none;
+                padding: 12px;
+                border-radius: 6px;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 6px;
+            }
+
+            .login-box .forgot {
+                text-align: center;
+                margin-top: 10px;
+                font-size: 12px;
+                color: rgba(255,255,255,0.6);
+            }
+
+        @media (max-width: 768px) {
+            .portal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tracking-form {
+                flex-direction: column;
+            }
+
+            .status-steps {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a class="nav-brand" href="../index.html">MALUTI <span>TVET</span> COLLEGE</a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="programmes.html">Programmes</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="student-portal.html" class="active">Student Portal</a></li>
+            <li><a href="intranet.html">Intranet</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <h1>Student <span>Portal</span></h1>
+        <p>Access your results, timetables, NSFAS information, and track your application — all in one place.</p>
+    </div>
+
+    <!-- STUDENT LOGIN -->
+    <div class="section">
+        <div class="section-title">Student Login</div>
+        <div class="section-subtitle">Log in with your student number and password</div>
+        <div class="login-box">
+            <h3>Welcome Back</h3>
+            <input type="text" placeholder="Student number (e.g. 2024001234)" />
+            <input type="password" placeholder="Password" />
+            <button>Log In</button>
+            <div class="forgot">Forgot your password? <a href="contact.html" style="color:#FFD700;">Contact us</a></div>
+        </div>
+    </div>
+
+    <!-- STUDENT RESOURCES -->
+    <div class="section" style="padding-top:0;">
+        <div class="section-title">Student Resources</div>
+        <div class="section-subtitle">Everything you need as a Maluti TVET student</div>
+        <div class="portal-grid">
+            <div class="portal-card">
+                <div class="icon">📋</div>
+                <h3>My Results</h3>
+                <p>View your latest examination results and academic progress reports.</p>
+                <a href="#" class="btn-portal">View results</a>
+            </div>
+            <div class="portal-card">
+                <div class="icon">🗓️</div>
+                <h3>Timetable</h3>
+                <p>Access your class timetable and examination schedule for the semester.</p>
+                <a href="#" class="btn-portal">View timetable</a>
+            </div>
+            <div class="portal-card">
+                <div class="icon">📚</div>
+                <h3>Library</h3>
+                <p>Access the digital library, borrow books, and access study materials online.</p>
+                <a href="#" class="btn-portal">Open library</a>
+            </div>
+            <div class="portal-card">
+                <div class="icon">💳</div>
+                <h3>Student Card</h3>
+                <p>Request a replacement student card or check your card status online.</p>
+                <a href="#" class="btn-portal">My student card</a>
+            </div>
+            <div class="portal-card">
+                <div class="icon">📝</div>
+                <h3>Registration</h3>
+                <p>View your registration status and confirm your modules for the semester.</p>
+                <a href="#" class="btn-portal">My registration</a>
+            </div>
+            <div class="portal-card">
+                <div class="icon">🏆</div>
+                <h3>Certificates</h3>
+                <p>Request certified copies of your academic certificates and transcripts.</p>
+                <a href="#" class="btn-portal">Request certificate</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NSFAS SECTION -->
+    <div class="section" style="padding-top:0;">
+        <div class="section-title">NSFAS Information</div>
+        <div class="section-subtitle">Financial assistance for qualifying students</div>
+        <div class="nsfas-box">
+            <div class="nsfas-icon">🎓</div>
+            <div>
+                <h3>What is NSFAS?</h3>
+                <p>The National Student Financial Aid Scheme (NSFAS) provides financial assistance to eligible South African students at public universities and TVET colleges. If you come from a household earning less than R350,000 per year, you may qualify for NSFAS funding to cover tuition, accommodation, and living allowances.</p>
+                <p><strong>How to apply:</strong> Visit the NSFAS website and create a myNSFAS account. You will need your ID number, parent or guardian's ID, and proof of household income.</p>
+                <a href="https://www.nsfas.org.za" target="_blank" class="btn-nsfas">Apply on NSFAS website</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NSFAS REQUIREMENTS -->
+    <div class="section" style="padding-top:0;">
+        <div class="section-title">NSFAS Requirements</div>
+        <div class="section-subtitle">Documents you need to apply</div>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon" style="background:#E6F1FB;">📄</div>
+                <h3>South African ID</h3>
+                <p>Certified copy of your South African identity document or birth certificate.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:#EAF3DE;">👨‍👩‍👧</div>
+                <h3>Parent or Guardian ID</h3>
+                <p>Certified copy of your parent or guardian's identity document.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:#FAEEDA;">💼</div>
+                <h3>Proof of Income</h3>
+                <p>Latest payslip, SASSA letter, or affidavit if parent or guardian is unemployed.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:#E1F5EE;">🏫</div>
+                <h3>Proof of Registration</h3>
+                <p>Your proof of registration at Maluti TVET College for the current academic year.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- APPLICATION TRACKING -->
+    <div class="section" style="padding-top:0;">
+        <div class="section-title">Track Your Application</div>
+        <div class="section-subtitle">Enter your application reference number to check your status</div>
+        <div class="tracking-box">
+            <h4>Application Status Checker</h4>
+            <div class="tracking-form">
+                <input type="text" placeholder="Enter your application reference number (e.g. APP-2026-00123)" />
+                <button onclick="checkStatus()">Check Status</button>
+            </div>
+            <div class="status-steps">
+                <div class="status-step done">Application Submitted</div>
+                <div class="status-step done">Documents Verified</div>
+                <div class="status-step active">Under Review</div>
+                <div class="status-step">Outcome Ready</div>
+                <div class="status-step">Registration Open</div>
+            </div>
+            <p style="font-size:12px;color:#888;margin-top:10px;">Your application is currently under review. You will be notified by email and SMS once a decision has been made.</p>
+        </div>
+    </div>
+
+    <!-- STUDENT SUPPORT -->
+    <div class="section" style="padding-top:0;">
+        <div class="section-title">Student Support Services</div>
+        <div class="section-subtitle">We are here to help you succeed</div>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon" style="background:#E6F1FB;">🧠</div>
+                <h3>Counselling Services</h3>
+                <p>Free and confidential counselling available at all campuses for academic and personal support.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:#EAF3DE;">♿</div>
+                <h3>Disability Support</h3>
+                <p>Specialised support for students with disabilities including assistive technology and academic accommodations.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:#FAEEDA;">🏠</div>
+                <h3>Accommodation</h3>
+                <p>On-campus and off-campus accommodation options available. Contact your campus for availability.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:#E1F5EE;">📞</div>
+                <h3>Student Helpdesk</h3>
+                <p>Call 058 713 0678 or email students@malutitvet.edu.za for any student-related queries.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h5>Maluti TVET College</h5>
+                <p>Empowering communities through quality technical and vocational education across the Free State.</p>
+            </div>
+            <div>
+                <h5>Quick links</h5>
+                <a href="../index.html">Home</a>
+                <a href="programmes.html">Programmes</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div>
+                <h5>Student</h5>
+                <a href="student-portal.html">Student Portal</a>
+                <a href="#">NSFAS</a>
+                <a href="#">Academic calendar</a>
+                <a href="#">Results</a>
+            </div>
+            <div>
+                <h5>Contact</h5>
+                <p>students@malutitvet.edu.za</p>
+                <p>058 713 0678</p>
+                <p>Mon–Fri 08:00–16:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Maluti TVET College. All rights reserved. Department of Higher Education and Training.
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+    function checkStatus() {
+      const input = document.querySelector('.tracking-form input');
+      if (input.value.trim()) {
+        alert('Checking status for: ' + input.value + '\n\nStatus: Under Review\nYou will be notified by email and SMS once a decision has been made.');
+      } else {
+        alert('Please enter your application reference number.');
+      }
+    }
+    </script>
+</body>
+</html>

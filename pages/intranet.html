@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staff Intranet | Maluti TVET College</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+        .intranet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .intranet-card {
+            background: #ffffff;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            padding: 1.25rem;
+            border-left: 4px solid #003366;
+        }
+
+            .intranet-card h3 {
+                font-size: 14px;
+                font-weight: 600;
+                color: #003366;
+                margin-bottom: 6px;
+            }
+
+            .intranet-card p {
+                font-size: 13px;
+                color: #666;
+                line-height: 1.6;
+                margin-bottom: 10px;
+            }
+
+            .intranet-card .btn-intranet {
+                display: inline-block;
+                background: #003366;
+                color: #ffffff;
+                padding: 7px 14px;
+                border-radius: 6px;
+                font-size: 12px;
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+        .staff-login-box {
+            background: #003366;
+            border-radius: 10px;
+            padding: 2rem;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+            .staff-login-box h3 {
+                color: #FFD700;
+                font-size: 18px;
+                font-weight: 600;
+                margin-bottom: 6px;
+                text-align: center;
+            }
+
+            .staff-login-box p {
+                color: rgba(255,255,255,0.6);
+                font-size: 12px;
+                text-align: center;
+                margin-bottom: 1.25rem;
+            }
+
+            .staff-login-box input,
+            .staff-login-box select {
+                width: 100%;
+                padding: 10px 12px;
+                border: none;
+                border-radius: 6px;
+                font-size: 13px;
+                margin-bottom: 10px;
+                background: rgba(255,255,255,0.15);
+                color: #fff;
+            }
+
+                .staff-login-box input::placeholder {
+                    color: rgba(255,255,255,0.6);
+                }
+
+                .staff-login-box select option {
+                    color: #333;
+                    background: #fff;
+                }
+
+            .staff-login-box button {
+                width: 100%;
+                background: #FFD700;
+                color: #003366;
+                border: none;
+                padding: 12px;
+                border-radius: 6px;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 4px;
+            }
+
+        .notice-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .notice-item {
+            background: #ffffff;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            padding: 14px 16px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .notice-badge {
+            background: #003366;
+            color: #FFD700;
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 10px;
+            font-weight: 600;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .notice-body h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: #003366;
+            margin-bottom: 3px;
+        }
+
+        .notice-body p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .doc-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e8e8e8;
+        }
+
+            .doc-table th {
+                background: #003366;
+                color: #ffffff;
+                padding: 10px 14px;
+                text-align: left;
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+            .doc-table td {
+                padding: 10px 14px;
+                font-size: 12px;
+                color: #444;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .doc-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            .doc-table tr:hover td {
+                background: #f5f8ff;
+            }
+
+            .doc-table .download-btn {
+                background: #FFD700;
+                color: #003366;
+                border: none;
+                padding: 5px 12px;
+                border-radius: 4px;
+                font-size: 11px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+        @media (max-width: 768px) {
+            .intranet-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .doc-table {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a class="nav-brand" href="../index.html">MALUTI <span>TVET</span> COLLEGE</a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="programmes.html">Programmes</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="student-portal.html">Student Portal</a></li>
+            <li><a href="intranet.html" class="active">Intranet</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <h1>Staff <span>Intranet</span></h1>
+        <p>Internal staff portal for Maluti TVET College employees. Access documents, systems, and announcements.</p>
+    </div>
+
+    <!-- STAFF LOGIN -->
+    <div class="section">
+        <div class="section-title">Staff Login</div>
+        <div class="section-subtitle">Log in with your staff credentials to access internal systems</div>
+        <div class="staff-login-box">
+            <h3>Staff Portal Access</h3>
+            <p>For authorised Maluti TVET College staff only</p>
+            <input type="text" placeholder="Staff ID number" />
+            <input type="password" placeholder="Password" />
+            <select>
+                <option value="">Select your campus</option>
+                <option>Phuthaditjhaba (Main)</option>
+                <option>Harrismith</option>
+                <option>Botha-Bothe</option>
+                <option>Mokhotlong</option>
+                <option>Butha-Buthe</option>
+                <option>Thaba-Tseka</option>
+            </select>
+            <button>Log In to Intranet</button>
+        </div>
+    </div>
+
+    <!-- INTERNAL SYSTEMS -->
+    <div class="section" style="padding-top:0;">
+        <div class="section-title">Internal Systems</div>
+        <div class="section-subtitle">Quick access to all staff systems and platforms</div>
+        <div class="intranet-grid">
+            <div class="intranet-card">
+                <h3>Leave Management System</h3>
+                <p>Apply for leave, view your leave balance, and track approval status online.</p>
+                <a href="#" class="btn-intranet">Open system</a>
+            </div>
+            <div class="intranet-card">
+                <h3>HR & Payroll Portal</h3>
+                <p>Access your payslips, update personal details, and manage employee records.</p>
+                <a href="#" class="btn-intranet">Open system</a>
+            </div>
+            <div class="intranet-card">
+                <h3>Results Capture System</h3>
+                <p>Lecturers can capture and submit student marks for the current semester.</p>
+                <a href="#" class="btn-intranet">Open system</a>
+            </div>
+            <div class="intranet-card">
+                <h3>Timetable Management</h3>
+                <p>View and manage lecture timetables, venues, and class schedules by campus.</p>
+                <a href="#" class="btn-intranet">Open system</a>
+            </div>
+            <div class="intranet-card">
+                <h3>Document Management</h3>
+                <p>Access policies, procedures, templates, and official college documents.</p>
+                <a href="#" class="btn-intranet">Open SharePoint</a>
+            </div>
+            <div class="intranet-card">
+                <h3>IT Support Desk</h3>
+                <p>Log a support ticket, track your request, or contact the IT helpdesk team.</p>
+                <a href="#" class="btn-intranet">Log a ticket</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- STAFF NOTICES -->
+    <div class="section" style="padding-top:0;">
+        <div class="section-title">Staff Notices</div>
+        <div class="section-subtitle">Important internal announcements for all staff</div>
+        <div class="notice-list">
+            <div class="notice-item">
+                <div class="notice-badge">URGENT</div>
+                <div class="notice-body">
+                    <h4>Submission of student marks — Trimester 1 deadline</h4>
+                    <p>All lecturers must submit final marks for Trimester 1 by 15 May 2026. Late submissions will not be accepted. Contact the academic office for extensions.</p>
+                </div>
+            </div>
+            <div class="notice-item">
+                <div class="notice-badge">HR</div>
+                <div class="notice-body">
+                    <h4>Leave application window — June/July 2026</h4>
+                    <p>Staff wishing to apply for leave during the June/July recess must submit applications through the Leave Management System by 30 April 2026.</p>
+                </div>
+            </div>
+            <div class="notice-item">
+                <div class="notice-badge">IT</div>
+                <div class="notice-body">
+                    <h4>System maintenance — Saturday 4 May 2026</h4>
+                    <p>All internal systems will be unavailable from 22:00 on Saturday 4 May to 06:00 on Sunday 5 May 2026 for scheduled maintenance.</p>
+                </div>
+            </div>
+            <div class="notice-item">
+                <div class="notice-badge">FINANCE</div>
+                <div class="notice-body">
+                    <h4>Budget submissions for Q3 2026 now open</h4>
+                    <p>Heads of department must submit Q3 budget requests via the Finance portal by 10 May 2026. Contact the finance office for the submission template.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DOCUMENTS -->
+    <div class="section" style="padding-top:0;">
+        <div class="section-title">Policy & Document Library</div>
+        <div class="section-subtitle">Official college policies, forms, and templates</div>
+        <table class="doc-table">
+            <thead>
+                <tr>
+                    <th>Document name</th>
+                    <th>Category</th>
+                    <th>Last updated</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Staff Code of Conduct 2026</td>
+                    <td>HR Policy</td>
+                    <td>January 2026</td>
+                    <td><button class="download-btn">Download</button></td>
+                </tr>
+                <tr>
+                    <td>Leave Application Form</td>
+                    <td>HR Form</td>
+                    <td>March 2026</td>
+                    <td><button class="download-btn">Download</button></td>
+                </tr>
+                <tr>
+                    <td>Academic Integrity Policy</td>
+                    <td>Academic Policy</td>
+                    <td>January 2026</td>
+                    <td><button class="download-btn">Download</button></td>
+                </tr>
+                <tr>
+                    <td>Student Disciplinary Procedure</td>
+                    <td>Student Affairs</td>
+                    <td>February 2026</td>
+                    <td><button class="download-btn">Download</button></td>
+                </tr>
+                <tr>
+                    <td>Mark Capture Template — Trimester 1</td>
+                    <td>Academic Form</td>
+                    <td>April 2026</td>
+                    <td><button class="download-btn">Download</button></td>
+                </tr>
+                <tr>
+                    <td>IT Equipment Request Form</td>
+                    <td>IT Form</td>
+                    <td>March 2026</td>
+                    <td><button class="download-btn">Download</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h5>Maluti TVET College</h5>
+                <p>Empowering communities through quality technical and vocational education across the Free State.</p>
+            </div>
+            <div>
+                <h5>Quick links</h5>
+                <a href="../index.html">Home</a>
+                <a href="programmes.html">Programmes</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div>
+                <h5>Staff</h5>
+                <a href="intranet.html">Intranet</a>
+                <a href="#">IT Support</a>
+                <a href="#">Leave System</a>
+                <a href="#">HR Portal</a>
+            </div>
+            <div>
+                <h5>Contact</h5>
+                <p>admin@malutitvet.edu.za</p>
+                <p>058 713 0678</p>
+                <p>Mon–Fri 08:00–16:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Maluti TVET College. All rights reserved. Department of Higher Education and Training.
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

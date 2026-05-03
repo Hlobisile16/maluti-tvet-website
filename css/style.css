@@ -1,4 +1,4 @@
-* {
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -513,26 +513,165 @@ footer a {
     color: #555;
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-    .hero h1 {
-        font-size: 22px;
+/* ─────────────────────────────────────────
+   MOBILE RESPONSIVE — max-width: 768px
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+
+    /* NAV — hide links, show hamburger menu */
+    nav {
+        padding: 0 1rem;
+        position: relative;
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #003366;
+        padding: 0.5rem 0;
+    }
+
+        .nav-links.open {
+            display: flex;
+        }
+
+        .nav-links li {
+            width: 100%;
+        }
+
+        .nav-links a {
+            display: block;
+            width: 100%;
+            padding: 10px 1rem;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 8px;
+    }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #ffffff;
+            border-radius: 2px;
+        }
+
+    /* HERO */
+    .hero {
+        padding: 2.5rem 1rem;
+    }
+
+        .hero h1 {
+            font-size: 22px;
+        }
+
+        .hero p {
+            font-size: 13px;
+        }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-primary,
+    .btn-outline {
+        width: 100%;
+        text-align: center;
     }
 
     .hero-stats {
-        gap: 1.5rem;
+        gap: 1rem;
+        justify-content: space-around;
     }
 
-    nav {
-        padding: 0 1rem;
+    .hero-stat .number {
+        font-size: 20px;
     }
 
-    .nav-links a {
-        font-size: 11px;
-        padding: 5px 8px;
+    /* PAGE HERO */
+    .page-hero {
+        padding: 1.5rem 1rem;
     }
 
+        .page-hero h1 {
+            font-size: 20px;
+        }
+
+    /* SECTIONS */
+    .section {
+        padding: 1.5rem 1rem;
+    }
+
+    /* CARDS */
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* PROGRAMMES */
+    .prog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* STEPS */
+    .step {
+        flex-direction: column;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* FORM */
     .form-row {
         grid-template-columns: 1fr;
+    }
+
+    .form-box input,
+    .form-box select,
+    .form-box textarea {
+        font-size: 14px;
+    }
+
+    /* FOOTER */
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    footer {
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 400px) {
+
+    .hero h1 {
+        font-size: 19px;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-brand {
+        font-size: 13px;
     }
 }

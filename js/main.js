@@ -1,5 +1,10 @@
 // Maluti TVET College — main.js
 
+// Hamburger menu toggle
+function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('open');
+}
 // Highlight active nav link based on current page
 document.addEventListener('DOMContentLoaded', function () {
     const currentPage = window.location.pathname.split('/').pop();
